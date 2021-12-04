@@ -1,6 +1,6 @@
 package Day4;
 
-class Solution {
+class  WhoLikesIt{
     public static String whoLikesIt(String... names) {
 
         if (names.length==0)

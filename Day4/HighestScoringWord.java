@@ -1,8 +1,10 @@
-public class Scores {
+public class Kata {
   public static String high(String s) {
+    
     String[] words = s.split("\\s");
     int[] scores = new int[words.length];
-    int highestscore=0, highestindex=0;
+    int highestscore=0, 
+    highestindex=0;
         for (int j = 0; j < words.length; j++) {
             int score = 0;
             for (int i = 0; i <words[j].length() ; i++) {
