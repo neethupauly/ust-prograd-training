@@ -1,0 +1,43 @@
+Admin:
+	Properties:
+		-id
+		-name
+		-password
+	Methods:+login()
+		+manageAccounts()
+		+manageBooking()
+		+logout()
+Passenger:
+	Properties:
+		+name
+		+address
+		+age
+		+gender
+		-password
+	Methods:
+		+login()
+		+register()
+		+bookTicket()
+		+searchTrains()
+		+cancelTicket()
+		+makePayment()
+		+logout()
+Clerk:
+	Properties:
+		-id
+		-name
+		-password
+	Methods:
+		+login()
+		+manageRefunds()
+		+printTickets()
+		+manageTrainSchedule()
+		+logout()
+TicketGenerate:
+	Properties:
+		+pnrNo
+		+status
+		+numOfPersons
+	Methods:
+		+generateTicket()
+		+deleteTicket()

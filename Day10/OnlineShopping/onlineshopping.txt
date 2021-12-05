@@ -1,0 +1,49 @@
+Admin:
+	Properties:
+		-id
+		-name
+		-password
+	Methods:
+		+login()
+		+manageOrder()
+		+manageRefund()
+		+logout
+Product:
+	Properties:
+		-productid
+		#productname
+		#category
+	Methods:
+		+addproduct()
+Customer:
+	Properties:
+		-customerid
+		#name
+		#addresss
+		#phno
+	Methods:
+		+login()
+		+register()
+		+searchItems()
+		+viewItem()
+		+addToCart()
+		+placeOrder()
+		+makePayment()
+		+cancelOrder()
+		+requestRefund()
+		+logout()
+Cart:
+	Properties:-productId
+		-numberOfProducts
+		-price
+		-total
+	Methods:+removefromcart()
+Payment:
+	Properties:
+		#customerId
+		+name
+		-cardType
+		-cardNumber
+	Methods:
+		+makepayment()
+

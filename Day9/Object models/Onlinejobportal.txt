@@ -1,0 +1,92 @@
+Applicant:
+	Properties:
+		+Name
+
+		+WorkStaus
+
+		-PhoneNumber
+
+		-Email
+
+		-Place
+	Methods:+login()
+
+		+searchjob()
+
+		-applyforjob()
+
+		-add()
+
+		#update()
+Employer:
+	Properties:
+		+CompanyName
+
+		-PhoneNumber
+
+		-EmployerName
+
+		-DateofPosting
+	Methods:
+		+login()
+
+		#searchapplicant()
+
+		-postjob()
+
+		#contact()
+Admin:
+	Properties:
+		+Id
+
+		+Password
+	Methods:
+		#manage()
+
+		#updatesite()
+JobApplication:
+	Properties:
+		+Name
+
+		+Email
+
+		+PhoneNo
+
+		+JobTitle
+
+		+DateOfPosting
+	Methods:
+		#applyjob()
+
+		#cancel()
+
+		#update()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
