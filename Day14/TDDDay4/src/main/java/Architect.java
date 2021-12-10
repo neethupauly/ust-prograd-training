@@ -1,24 +1,38 @@
 public class Architect {
-    double value;
+    double magnitude1,magnitude2;
 
 
-    Architect(double value){
-        if(value<=0 && value!=1){
-            throw new IllegalArgumentException("The centimeter should be equal to one");
-        }
-        this.value=value;
+    Architect(double magnitude1,double magnitude2){
 
+        this.magnitude1=magnitude1;
+        this.magnitude2=magnitude2;
     }
-    public double meterToCentimeter(){
+    public double meterToCentimeter(double value){
         return 100*value;
     }
 
-    public double centimeterToCentimeter(){
+    public double centimeterToCentimeter(double value){
         return value;
     }
 
-    public double centimeterToKilometer(){
+    public double centimeterToKilometer(double value){
         return value/100000;
     }
+
+    public double addingMeterAndCentimeterGivesMeter(){
+        return magnitude1+(magnitude2/100);
+
+    }
+
+    public double addingCentimeterAndKilometerGivesCentimeter(){
+
+        return magnitude1+(magnitude2*100000);
+    }
+
+    public double subtractingMeterAndCentimeter() {
+        return magnitude1-(magnitude2*100);
+    }
+
+
 
 }
