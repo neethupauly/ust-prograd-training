@@ -1,0 +1,3 @@
+Program StartedUser selected INR 
+User entered  1.0
+Program Stopped
