@@ -1,3 +1,10 @@
-Program StartedUser selected INR 
-User entered  1.0
-Program Stopped
+Program Started 
+User selected Pound 
+User entered  290.0
+Program Stopped 
+Program Started 
+User selected CanadianDollar 
+User entered  800.0
+User selected Pound 
+User entered  7.0
+Program Stopped 

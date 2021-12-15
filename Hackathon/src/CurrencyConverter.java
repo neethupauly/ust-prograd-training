@@ -18,16 +18,16 @@ class Application {
     public static void main(String[] args) throws IOException {
         CurrencyConverter currencyConverter = new CurrencyConverter();
         File file = new File("log.txt");
-        file.createNewFile();
+//        file.createNewFile();
 //        FileReader reader = new FileReader(file);
 
         FileWriter writer = new FileWriter(file, true);
         BufferedWriter Writefile = new BufferedWriter(writer);
         Scanner sc = new Scanner(System.in);
 
-        
         double amountAfterConversion;
         int a;
+        Writefile.write(("Program Started \n"));
         do {
             System.out.println("Enter a Choice");
             System.out.println("1) Dollar to Rupees Conversion");
@@ -45,120 +45,126 @@ class Application {
             int select_choice = sc.nextInt();
             double amount;
 
-                do {
-                    Writefile.write(("Program Started"));
+            try {
+                if (select_choice <= 0 || select_choice > 10)
 
-                    if (select_choice == 1 || select_choice == 2) {
-                        Writefile.write("User selected INR \n");
+                    throw new IllegalArgumentException("Your choice is invalid");
 
-                    } else if (select_choice == 3 || select_choice == 4) {
-                        Writefile.write("User selected Pound \n");
-                    } else if (select_choice == 5 || select_choice == 6) {
-                        Writefile.write("User selected CanadianDollar \n");
-                    } else if (select_choice == 7 || select_choice == 8) {
-                        Writefile.write("User selected Euro \n");
-                    } else if (select_choice == 9 || select_choice == 10) {
-                        Writefile.write("User selected AustralianDollar\n");
-                    } else {
 
-                        Writefile.write("User selected invalid choice\n");
-                    }
+                if (select_choice == 1 || select_choice == 2) {
+                    Writefile.write("User selected INR \n");
 
-                } while (select_choice <= 0 || select_choice > 10);
+                } else if (select_choice == 3 || select_choice == 4) {
+                    Writefile.write("User selected Pound \n");
+                } else if (select_choice == 5 || select_choice == 6) {
+                    Writefile.write("User selected CanadianDollar \n");
+                } else if (select_choice == 7 || select_choice == 8) {
+                    Writefile.write("User selected Euro \n");
+                } else if (select_choice == 9 || select_choice == 10) {
+                    Writefile.write("User selected AustralianDollar\n");
+                } else {
+                    System.out.println("Invalid");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println("The choice cannot be invalid");
+
+            }
 
 
             switch (select_choice) {
 
-                    case 1:
-                        System.out.println("Dollar to Rupees Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.dollarsToRupees(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 2:
-                        System.out.println("Rupees to Dollar Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToDollars(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 3:
-                        System.out.println("Pound to Rupees Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.poundToRupees(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 4:
-                        System.out.println("Rupees to Pound Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToPound(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 5:
-                        System.out.println("CanadianDollar to Rupees Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.canadianDollarToRupees(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 6:
-                        System.out.println("Rupees to CanadianDollar Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToCanadianDollar(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 7:
-                        System.out.println("Euro to Rupees Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.euroToRupees(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 8:
-                        System.out.println("Rupees to Euro Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToEuro(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 9:
-                        System.out.println("AustralianDollar to Rupees Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.australianDollarToRupees(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
-                    case 10:
-                        System.out.println("Rupees to AustralianDollar Conversion");
-                        System.out.println("Enter the amount you wish to convert");
-                        amount = sc.nextDouble();
-                        Writefile.write("User entered  " + amount + "\n");
-                        amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToAustralianDollar(amount));
-                        System.out.println(amountAfterConversion);
-                        break;
+                case 1:
+                    System.out.println("Dollar to Rupees Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.dollarsToRupees(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 2:
+                    System.out.println("Rupees to Dollar Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToDollars(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 3:
+                    System.out.println("Pound to Rupees Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.poundToRupees(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 4:
+                    System.out.println("Rupees to Pound Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToPound(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 5:
+                    System.out.println("CanadianDollar to Rupees Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.canadianDollarToRupees(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 6:
+                    System.out.println("Rupees to CanadianDollar Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToCanadianDollar(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 7:
+                    System.out.println("Euro to Rupees Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.euroToRupees(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 8:
+                    System.out.println("Rupees to Euro Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToEuro(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 9:
+                    System.out.println("AustralianDollar to Rupees Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.australianDollarToRupees(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
+                case 10:
+                    System.out.println("Rupees to AustralianDollar Conversion");
+                    System.out.println("Enter the amount you wish to convert");
+                    amount = sc.nextDouble();
+                    Writefile.write("User entered  " + amount + "\n");
+                    amountAfterConversion = currencyConverter.round(currencyConverter.rupeesToAustralianDollar(amount));
+                    System.out.println(amountAfterConversion);
+                    break;
 
                 default:
                     System.out.println("Enter A valid Conversion");
+
             }
+
             System.out.println("Do you wish to continue(yes/no)? Press 1 for continue and 0 for exit");
             a = sc.nextInt();
-            Writefile.write(("Program Stopped"));
-            Writefile.close();
 
         } while (a == 1);
+        Writefile.write(("Program Stopped \n"));
+        Writefile.close();
 
 
     }
@@ -198,7 +204,7 @@ public class CurrencyConverter {
     }
 
     public double euroToRupees(double euro) {
-        return euro / EUROTORUPEES;
+        return euro * EUROTORUPEES;
     }
 
     public double rupeesToEuro(double rupees) {
