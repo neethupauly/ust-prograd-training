@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<h1 class="head1">Login</h1>
+<form action="/view">
+    <div class="container">
+        <div class="form-group">
+            <label>User Name</label><input type="text" name="username"><br>
+        </div>
+        <div class="form-group">
+            <label>Password</label> <input type="password" name="password"><br>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary" value="LogIn"/>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
