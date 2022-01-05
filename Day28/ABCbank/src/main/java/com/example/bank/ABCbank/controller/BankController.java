@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class BankController {
@@ -34,6 +31,66 @@ public class BankController {
         return "login";
     }
 
+    @RequestMapping("/contact")
+    public String contactPage(){
+        return "contact";
+    }
+
+    @PostMapping("/view")
+    public String list(Model model, HttpServletRequest request) {
+        Long accountNumber=Long.parseLong(request.getParameter("accountNumber"));
+        String password = request.getParameter("password");
+
+        Customer customerData = new Customer();
+        customerData = service.findById(accountNumber);
+
+//        if(password.equals(customerData.getPassword())){
+        if (Objects.equals(password, customerData.getPassword())) {
+//            model.addAttribute("message","Successfully logged In..!");
+            model.addAttribute("customerName", customerData.getCustomerName());
+            model.addAttribute("userName",customerData.getUserName());
+            model.addAttribute("phoneNumber", customerData.getPhoneNumber());
+            model.addAttribute("accountNumber", customerData.getAccountNumber());
+            model.addAttribute("branch", customerData.getBranch());
+            return "view";
+        }
+        else{
+            model.addAttribute("error","Invalid Credentials..!");
+            return "login";
+        }
+
+    }
+
+
+
+    @RequestMapping("/register")
+    public String register(){
+        return "register";
+    }
+
+
+
+    @PostMapping("/login")
+    public String details(HttpServletRequest request,Model model) {
+        Long accountNumber = Long.parseLong(request.getParameter("accountNumber"));
+        String customerName = request.getParameter("customerName");
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String branch = request.getParameter("branch");
+        Long phoneNumber = Long.parseLong(request.getParameter("phoneNumber"));
+
+        model.addAttribute("accountNumber", accountNumber);
+        model.addAttribute("customerName", customerName);
+        model.addAttribute("userName", userName);
+        model.addAttribute("branch", branch);
+        model.addAttribute("phoneNumber", phoneNumber);
+        Customer customer1=new Customer(accountNumber,customerName,userName,password,branch,phoneNumber);
+        service.save(customer1);
+
+        return "login";
+    }
+
+}
 
 //    @RequestMapping("/view")
 //    public String viewDetails(Model model,HttpServletRequest req){
@@ -57,38 +114,6 @@ public class BankController {
 //        }
 //        return "view";
 //    }
-
-
-    @RequestMapping("/register")
-
-    public String register(){
-        return "register";
-    }
-
-    @PostMapping("/view")
-
-    public String details(HttpServletRequest request,Model model) {
-        Long accountNumber = Long.parseLong(request.getParameter("accountNumber"));
-        String customerName = request.getParameter("customerName");
-        String userName = request.getParameter("username");
-        String password = request.getParameter("password");
-        String branch = request.getParameter("branch");
-        Long phoneNumber = Long.parseLong(request.getParameter("phoneNumber"));
-
-        model.addAttribute("accountNumber", accountNumber);
-        model.addAttribute("customerName", customerName);
-        model.addAttribute("username", userName);
-        model.addAttribute("branch", branch);
-        model.addAttribute("phoneNumber", phoneNumber);
-        Customer customer1=new Customer(accountNumber,customerName,userName,password,branch,phoneNumber);
-        service.save(customer1);
-
-        return "view";
-    }
-
-}
-
-
 
 
 

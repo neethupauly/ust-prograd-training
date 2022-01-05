@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
+    <h3><span th:text="${message}"/></h3>
+    <h1 align="center">Details of your Account</h1><br>
+    <h2 align="center">Welcome <span th:text="${customerName}"/> </h2>
     <h3>Customer Name :  <span th:text="${customerName}"/></h3>
     <h3>Account Number :<span th:text="${accountNumber}"/></h3>
-    <h3>User Name :<span th:text="${username}"/></h3>
+    <h3>User Name :<span th:text="${userName}"/></h3>
     <h3>Branch : <span th:text="${branch}"/></h3>
     <h3>Phone Number :<span th:text="${phoneNumber}"/></h3>
 

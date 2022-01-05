@@ -20,6 +20,9 @@ color:rgb(236, 236, 236);
     font-weight: 500;
      color:black;
 }
+h6{
+font-color:red;
+}
 .container-fluid{
 background-color:darkgray;
 }

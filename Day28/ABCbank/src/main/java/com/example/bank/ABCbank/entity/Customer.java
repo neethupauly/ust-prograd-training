@@ -6,6 +6,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Customer {
+
     @Id
     private Long accountNumber;
     @Column(nullable = false)
