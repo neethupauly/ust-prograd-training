@@ -1,2 +1,4 @@
-package com.Aop.demoAop;public class Hospital {
+package com.Aop.demoAop;
+
+public class Hospital {
 }
