@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+</head>
+<body>
+
+<h1 align="center">Edit Profile</h1><br>
+
+<form action="/view" method="post">
+    <div class="container mt-5" align="center">
+        <h3>Register your details</h3>
+        <input type="text" name="accountNumber" placeholder="Account Number" th:value="{$customers.accountNumber}" class="form-control"><br>
+        <input type="text" name="customerName" placeholder="Customer Name" th:value="{$customers.customerName}" class="form-control"><br>
+        <input type="text" name="userName" placeholder="User Name" th:value="{$customers.userName}" class="form-control"><br>
+        <input type="password" name="password" placeholder="Reset password"  th:value="{$customers.password}" class="form-control"><br>
+        <input type="text" name="branch" placeholder="Branch"  th:value="{$customers.branch}" class="form-control"><br>
+        <input type="number" name="phoneNumber" placeholder="Phone Number" th:value="{$customers.phoneNumber}" class="form-control"><br>
+        <input type="submit"  value="Update" class="btn btn-success">
+
+    </div>
+</form>
+</body>
+</html>
