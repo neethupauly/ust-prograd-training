@@ -1,8 +1,12 @@
 package com.example.bank.ABCbank.entity;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 
 @Entity
 public class Customer {
@@ -18,6 +22,7 @@ public class Customer {
     private String branch;
     @Column(nullable = false,unique = true)
     private Long phoneNumber;
+    private double balance=5000.0;
 
     public Customer(){
 
@@ -30,6 +35,7 @@ public class Customer {
         this.password = password;
         this.branch = branch;
         this.phoneNumber = phoneNumber;
+
     }
 
     public String getUserName() {
@@ -78,5 +84,13 @@ public class Customer {
 
     public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }

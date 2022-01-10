@@ -17,6 +17,10 @@ public class BankController {
 
     @Autowired
     private CustomerService service;
+    public Long accNo;
+
+//    @Autowired
+//    private Customer customerObj;
 
     @RequestMapping("/home")
     public String homepage() {
@@ -27,6 +31,7 @@ public class BankController {
     public String loginPage() {
         return "login";
     }
+
     @RequestMapping("/register")
     public String register() {
         return "register";
@@ -44,12 +49,13 @@ public class BankController {
         String password = request.getParameter("password");
 
 
-        Customer customerData = new Customer();
-        customerData = service.findById(accountNumber);
+        Customer customerData = service.findById(accountNumber);
+//        customerData = service.findById(accountNumber);
 
 //        if(password.equals(customerData.getPassword())){
         if (service.existsById(accountNumber)) {
             if (Objects.equals(password, customerData.getPassword())) {
+                accNo = customerData.getAccountNumber();
                 model.addAttribute("message", "Successfully logged In..!");
                 model.addAttribute("customerName", customerData.getCustomerName());
                 model.addAttribute("userName", customerData.getUserName());
@@ -69,6 +75,7 @@ public class BankController {
 
 
     }
+
     @PostMapping("/register")
     public String registerCustomer(HttpServletRequest request, Model model) {
         Long accountNumber = Long.parseLong(request.getParameter("accountNumber"));
@@ -86,7 +93,7 @@ public class BankController {
         model.addAttribute("phoneNumber", phoneNumber);
         Customer customer1 = new Customer(accountNumber, customerName, userName, password, branch, phoneNumber);
         service.save(customer1);
-        model.addAttribute("success","Successfully Registered..!");
+        model.addAttribute("success", "Successfully Registered..!");
 
         return "login";
 
@@ -101,7 +108,6 @@ public class BankController {
         String password = request.getParameter("password");
         String branch = request.getParameter("branch");
         Long phoneNumber = Long.parseLong(request.getParameter("phoneNumber"));
-
 
 
         model.addAttribute("accountNumber", accountNumber);
@@ -126,7 +132,84 @@ public class BankController {
         model.addAttribute("customers", service.findById(id));
         return "editprofile";
     }
+
+//    @RequestMapping("/fundTransfer")
+//    public String fundTransferPath() {
+//        return "fundTransfer";
+//    }
+
+
+    @RequestMapping("/fundTransfer")
+    public String fundTransfer(Model model) {
+//        Customer customer= service.findById(customerObj.getAccountNumber());
+//        service.findById(customerObj.getAccountNumber());
+        Customer customer = service.findById(accNo);
+        model.addAttribute("accountNumber", customer.getAccountNumber());
+        return "fundTransfer";
+    }
+
+    @PostMapping("/fundTransfer")
+    public String transferFunds(HttpServletRequest request, Model model) {
+        Long fromAccount = Long.parseLong(request.getParameter("accountNumber"));
+        Long toAccount = Long.parseLong(request.getParameter("accountNumber2"));
+        double amount = Double.parseDouble(request.getParameter("amount"));
+
+
+        Customer customer1 = service.findById(fromAccount);
+        Customer customer2 = service.findById(toAccount);
+        try {
+
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Amount cannot be zero or negative");
+            }
+
+
+            if (customer1.getBalance() > amount) {
+                double customer1balance = customer1.getBalance() - amount;
+                customer1.setBalance(customer1balance);
+                double customer2balance = customer2.getBalance() + amount;
+                customer2.setBalance(customer2balance);
+                service.save(customer1);
+                service.save(customer2);
+                model.addAttribute("message", "Transaction successful");
+//            model.addAttribute("balance",customer1.getBalance());
+                return "fundTransfer";
+            } else {
+                model.addAttribute("message", "Insufficient balance");
+                return "fundTransfer";
+            }
+        }
+        catch (IllegalArgumentException ae){
+            model.addAttribute("message","Transaction failed");
+
+        }
+
+        return "fundTransfer";
+    }
+
+
+    @RequestMapping("/balance")
+    public String getAccountBalance(Model model) {
+        Customer customer=service.findById(accNo);
+        model.addAttribute("balance",customer.getBalance());
+        return "balance";
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
