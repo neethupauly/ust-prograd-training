@@ -1,7 +1,10 @@
 package com.neethu.relations.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Student {
@@ -12,12 +15,22 @@ public class Student {
     private String name;
     @Column(nullable = false)
     private Integer age;
+
+    @JsonIgnore
     @ManyToOne
     private Faculty faculty;
+
+    @JsonIgnore
+    @ManyToMany
+    private List<Course> courses;
 
     public Student(String name, Integer age) {
         this.name = name;
         this.age = age;
+    }
+
+    public Student(){
+
     }
 
     public Long getId() {
@@ -50,5 +63,18 @@ public class Student {
 
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    public void addCourses(Course course){
+        this.courses.add(course);
+
     }
 }

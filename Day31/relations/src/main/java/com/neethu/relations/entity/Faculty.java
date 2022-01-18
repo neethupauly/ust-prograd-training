@@ -1,10 +1,10 @@
 package com.neethu.relations.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Faculty {
@@ -14,8 +14,14 @@ public class Faculty {
     @Column(nullable = false)
     private String name;
 
+    @OneToMany(mappedBy = "faculty")
+    private List<Student> students;
+
     public Faculty(String name) {
         this.name = name;
+    }
+    public  Faculty(){
+
     }
 
     public Long getId() {
@@ -32,5 +38,13 @@ public class Faculty {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

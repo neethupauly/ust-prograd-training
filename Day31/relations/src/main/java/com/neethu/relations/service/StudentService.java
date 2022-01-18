@@ -20,4 +20,8 @@ public class StudentService {
     public Student save(Student student) {
         return repository.save(student);
     }
+
+    public Student getStudentById(Long studentId) {
+        return repository.findById(studentId).get();
+    }
 }

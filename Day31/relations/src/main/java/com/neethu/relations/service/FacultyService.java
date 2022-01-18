@@ -19,4 +19,8 @@ public class FacultyService {
     public Faculty save(Faculty faculty){
         return repository.save(faculty);
     }
+
+    public Faculty getFacultyById(Long facultyId) {
+        return repository.findById(facultyId).get();
+    }
 }
