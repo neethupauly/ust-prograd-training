@@ -25,27 +25,66 @@
         </div>
     </div>
 </nav>
-<div class="container">
-    <div class="r1-c1 bg">
-        <!--        <div>-->
-        <!--            <img src="./images/spiderman.jpg" alt="">-->
-        <!--        </div>-->
 
-        <div class="container  mt-5" align="center">
+<div class="container" id="container1">
+    <h6 class="message mt-3"><span th:text="${message}"/></h6>
+    <div class="r1-c1 bg">
+        <div class="container  mt-4" align="center">
+            <h2><span th:text="${userName}"/></h2>
             <table>
                 <tr th:each="movie : ${movieList}">
-                    <td class="align-middle" th:text="${movie.movieName}"></td>
-                    <td><a class="btn btn-primary" th:href="@{/movieDetails/{id} (id=${movie.movieId})}">View Movie
-                        Details</a>
+                    <td class="align-middle" id="movieNames" th:text="${movie.movieName}"></td>
+                    <td><a class="btn btn-primary" th:href="@{/movieDetails/{id} (id=${movie.movieId})}" id="button">View
+                        More</a>
                     </td>
+                    <br>
                 </tr>
 
 
             </table>
         </div>
-        <div class="col-4"></div>
+        <div class="container my-3">
+            <div class="row">
+                <div class="col-lg-3 mt-sm-3 mt-md-4 mt-2">
+                    <div class="card" style="width: 20rem;">
+                        <img src="./images/pushpa.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mt-sm-3 mt-md-4 mt-2">
+                    <div class="card" style="width: 20rem;">
+                        <img src="./images/spiderman.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mt-sm-3 mt-md-4 mt-2">
+                    <div class="card" style="width: 20rem;">
+                        <img src="./images/Super_Saranya.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mt-sm-3 mt-md-4 mt-2">
+                    <div class="card" style="width: 20rem;">
+                        <img src="./images/83.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
     </div>
 </div>
-
 </body>
 </html>

@@ -3,8 +3,10 @@ package com.mainproject.movieTicket.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 //import java.util.Date;
 
 @Entity
@@ -18,6 +20,8 @@ public class Movie {
     @Column(nullable = false)
     private Date movieDate;
 
+    @OneToMany(mappedBy = "movie")
+    private List<BookedSeats> bookedSeats;
 
     public Movie(Long movieId, String movieName, Time movieTime, Date movieDate) {
         this.movieId = movieId;
@@ -60,5 +64,13 @@ public class Movie {
 
     public void setMovieDate(Date movieDate) {
         this.movieDate = movieDate;
+    }
+
+    public List<BookedSeats> getBookedSeats() {
+        return bookedSeats;
+    }
+
+    public void setBookedSeats(List<BookedSeats> bookedSeats) {
+        this.bookedSeats = bookedSeats;
     }
 }

@@ -3,14 +3,27 @@ body {
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
+	background-image:url("./images/theatre2.jpg");
+    background-size:100%;
 	justify-content: center;
 	flex-direction: column;
-
   color: #fff;
   margin: 0;
 }
+h6{
+font-family: "Montserrat", sans-serif;
+font-size:18px;
+font-weight:500;
+}
 h3{
-color:black;
+font-family: "Montserrat", sans-serif;
+font-size:25px;
+font-weight:500;
+}
+#bookSeat{
+text-align:center;
+border:1px solid white;
+border-radius:6 px;
 }
 
 * {
@@ -36,20 +49,11 @@ color:black;
 .screen-side {
   text-align: center;
 }
-.screen-side .screen {
 
-    background: #fff;
-    height: 70px;
-    width: 100%;
-    margin: 15px 0;
-    transform: rotateX(-45deg);
-    box-shadow: 0 3px 10px rgba(255,255,255,0.7);
-
-}
 .theatre {
   margin: 20px auto;
   width: 100%;
-  max-width: 350px;
+
   border-radius: 5px;
   background-color: #000000;
   padding: 20px 10px;

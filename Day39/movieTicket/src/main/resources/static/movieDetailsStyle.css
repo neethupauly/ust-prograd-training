@@ -1,18 +1,9 @@
 body{
-
+box-sizing:border-box;
 /*background-color: #004170;*/
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-background-image:url("./images/theatre2.jpg");
+background-image:url("./images/bgimg.jpg");
 background-size:100%;
-image-height:100%;
-image-width:100%;
-
 }
-
-/* second css*/
-
 #navbarcontainer {
   position: fixed;
   top: 0;
@@ -40,38 +31,22 @@ image-width:100%;
    display: inline-block;
    line-height: 80px;
 }
-h2{
-color:white;
-}
 .nav-item a:hover {
- color:#FBAB7E;
+ color:#FBAB7E !important;
 }
-td{
-font-family: "Raleway", sans-serif;
-color:white;
-}
-#container1{
-padding: 35px 50px;
-}
-#movieNames{
-  font-family: "Raleway", sans-serif;
+#details{
+   font-family: "Raleway", sans-serif;
   font-size: 25px;
   font-weight: 600;
   color:white;
-}
-.card{
-height:100%;
-
-}
-.card img{
-height:240px;
-display:flex;
-justify-content:space-evenly;
-flex-wrap:wrap;
-flex-direction:row;
+  position:absolute;
+  top:40%;
+  padding:30px 50px;
 }
 #button{
-background-color:transparent;
-border:1px solid red;
+border:3px solid red;
 border-radius:5px;
+position:relative;
+top:45%;
+background-color:rgba(3, 3, 55, 0.5);
 }

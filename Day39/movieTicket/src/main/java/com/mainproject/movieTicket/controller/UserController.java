@@ -1,6 +1,7 @@
 package com.mainproject.movieTicket.controller;
 
 import com.mainproject.movieTicket.entity.User;
+import com.mainproject.movieTicket.service.MovieService;
 import com.mainproject.movieTicket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MovieService movieService;
 
     @RequestMapping("/home")
     public String homepage() {
@@ -65,13 +69,15 @@ public class UserController {
         if (userService.existsById(userName)) {
             if (Objects.equals(password, user1.getPassword())) {
                 model.addAttribute("message", "Successfully logged in");
-                return "login";
+                model.addAttribute("userName",userName);
+                model.addAttribute("movieList",movieService.listAllMovies());
+                return "movies";
             } else {
-                model.addAttribute("message", "Invalid Password..!");
+                model.addAttribute("error", "Invalid Password..!");
                 return "login";
             }
         } else {
-            model.addAttribute("message", "Invalid Credentials..!");
+            model.addAttribute("error2", "Invalid Credentials..!");
             return "login";
         }
     }
