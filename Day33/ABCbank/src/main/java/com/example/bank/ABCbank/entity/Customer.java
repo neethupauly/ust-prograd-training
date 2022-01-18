@@ -17,9 +17,6 @@ public class Customer {
     @Column(nullable = false,unique = true)
     private Long phoneNumber;
 
-    @JsonIgnore
-    @OneToOne
-    private Account account;
 
     public Customer(){
 
