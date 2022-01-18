@@ -31,8 +31,9 @@ public class MovieController {
 
     }
 
-    @RequestMapping("/seatMap")
-    public String viewSeatMap(){
+    @RequestMapping("/seatMap/{id}")
+    public String viewSeatMap(@PathVariable Long id,Model model){
+        model.addAttribute("movieId",id);
         return "seatMap";
     }
 

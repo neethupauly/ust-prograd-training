@@ -1,8 +1,11 @@
 package com.mainproject.movieTicket.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Ticket {
@@ -11,11 +14,18 @@ public class Ticket {
     @Column(nullable = false)
     private Double ticketAmount=180.0;
 
+//    @JsonIgnore
+//    @ManyToOne
+//    private Movie movie;
+
     public Ticket(Long ticketId, Double ticketAmount) {
         this.ticketId = ticketId;
         this.ticketAmount = ticketAmount;
     }
 
+    public Ticket(){
+
+    }
     public Long getTicketId() {
         return ticketId;
     }

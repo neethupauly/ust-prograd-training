@@ -17,6 +17,9 @@ public class Seat {
         this.availableNoOfSeats = availableNoOfSeats;
     }
 
+    public Seat(){
+
+    }
     public Long getSeatId() {
         return seatId;
     }

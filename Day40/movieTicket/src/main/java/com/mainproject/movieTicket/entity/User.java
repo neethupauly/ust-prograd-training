@@ -1,8 +1,6 @@
 package com.mainproject.movieTicket.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -18,6 +16,9 @@ public class User {
     private String address;
     @Column(nullable = false,unique = true)
     private Long phoneNumber;
+
+//    @OneToMany
+//    private Ticket ticket;
 
     public User(String userName, String name, Integer age, String password, String address, Long phoneNumber) {
         this.userName = userName;

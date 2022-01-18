@@ -1,8 +1,12 @@
 package com.mainproject.movieTicket.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.awt.*;
 import java.sql.Date;
 import java.sql.Time;
 //import java.util.Date;
@@ -19,6 +23,8 @@ public class Movie {
     private Date movieDate;
 
 
+
+
     public Movie(Long movieId, String movieName, Time movieTime, Date movieDate) {
         this.movieId = movieId;
         this.movieName = movieName;
@@ -29,6 +35,8 @@ public class Movie {
     public Movie(){
 
     }
+
+
 
     public Long getMovieId() {
         return movieId;
