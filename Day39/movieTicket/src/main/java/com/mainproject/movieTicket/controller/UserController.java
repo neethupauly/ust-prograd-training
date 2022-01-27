@@ -1,5 +1,6 @@
 package com.mainproject.movieTicket.controller;
 
+import com.mainproject.movieTicket.entity.Movie;
 import com.mainproject.movieTicket.entity.User;
 import com.mainproject.movieTicket.service.MovieService;
 import com.mainproject.movieTicket.service.UserService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -63,13 +65,15 @@ public class UserController {
     public String userSignIn(Model model, HttpServletRequest request) {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
+//        String name=request.getParameter("name");
 
-        User user1 = userService.findByid(userName);
+        User user2 = userService.findById(userName);
 
-        if (userService.existsById(userName)) {
-            if (Objects.equals(password, user1.getPassword())) {
+        if (userService.usernameExistsById(userName)) {
+            if (Objects.equals(userService.findById(userName).getPassword(),password)) {
                 model.addAttribute("message", "Successfully logged in");
                 model.addAttribute("userName",userName);
+                model.addAttribute("name",userService.findById(userName).getName());
                 model.addAttribute("movieList",movieService.listAllMovies());
                 return "movies";
             } else {
@@ -81,5 +85,8 @@ public class UserController {
             return "login";
         }
     }
+
+
+
 }
 
