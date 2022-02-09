@@ -12,9 +12,9 @@
 <form action="/register" method="post">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid" id="navbarcontainer">
+        <div class="container" id="navbarcontainer">
 
-            <a class="navbar-brand" href=""><img src="./images/movielogo.png" class="navimg" alt=""></a>
+            <a class="navbar-brand" href=""><img src="" class="navimg" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -39,24 +39,20 @@
 
         </div>
     </nav>
+    <div class="col"><h2 class="head1 mt-5">Get Started</h2></div>
 
-
-    <div align="center">
     <h6 class="mt-3" ><span th:text="${error}"/></h6> <h6><span th:text="${message}"/></h6>
-    </div>
     <div class="container mt-2" id="formcontainer" align="center">
 
-        <fieldset>
-            <div class="col"><h2 class="head1">Get Started</h2></div>
-        <input type="text" name="userName" placeholder="Provide a UserName"  required><br>
-        <input type="text" name="name" placeholder="Enter Your Name"  required><br>
-        <input type="text" name="age" placeholder="Enter your age" required><br>
-        <input type="password" name="password" placeholder="Provide a password" required><br>
-        <input type="text" name="address" placeholder="Enter your Address" required><br>
-        <input type="number" name="phoneNumber" placeholder="Enter Phone Number"  required><br>
-        <input type="submit"   value="Sign up" class="button1">
-        </fieldset>
+        <input type="text" name="userName" placeholder="Provide a UserName" class="form-control mt-3" required><br>
+        <input type="text" name="name" placeholder="Enter Your Name" class="form-control" required><br>
+        <input type="text" name="age" placeholder="Enter your age" class="form-control" required><br>
+        <input type="password" name="password" placeholder=" Provide a password" class="form-control" required><br>
+        <input type="text" name="address" placeholder="Enter your Address" class="form-control"required><br>
+        <input type="number" name="phoneNumber" placeholder=" Enter your Phone Number" class="form-control" required><br>
+        <input type="submit"  value="Sign up" class="btn btn-success">
     </div>
 </form>
+
 </body>
 </html>

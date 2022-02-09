@@ -21,13 +21,12 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findById(String userName){
+    public User findByid(String userName){
         return userRepository.getById(userName);
 
     }
 
-    public boolean usernameExistsById(String userName) {
+    public boolean existsById(String userName) {
         return userRepository.existsById(userName);
-
     }
 }

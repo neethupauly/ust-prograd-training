@@ -1,47 +1,94 @@
 body{
-box-sizing:border-box;
+
 /*background-color: #004170;*/
-background-image:url("./images/login.jpg");
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+background-image:url("./images/bgimg.jpg");
 background-size:100%;
-}
-.nav-item a:hover{
-      color:cornflowerblue !important;
+scroll-behavior: smooth;
 }
 
-.navimg
-{
-    width: 100%;
-    height: 45px;
+/* second css*/
+
+#navbarcontainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.521);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
 }
+.navimg {
+  margin: 4%;
+  width: 100%;
+  height: 45px;
+
+}
+
 .nav-item a{
-    font-size: 18px;
-    font-weight: 500;
-     color: #004170 !important;
+    color: white !important;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+   display: inline-block;
+   line-height: 80px;
 
+
+}
+.nav-item a:hover {
+ color:#FBAB7E !important;
 }
 .head1{
-      color:white;
-     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-     text-align: center;
+    color:white;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 2.5rem;
+   font-weight: 600;
+   letter-spacing: 0.2rem;
+   padding: 20px 15px;
 
 }
+
 
 #formcontainer{
     background: #2c3e50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+     background: rgba(3, 3, 55, 0.5);
     border: 1px solid #ebedef;
     border-radius:6px ;
     width: 30%;
 }
-h6{
-color:white;
+.message{
+color:green;
 }
 
+.head6{
+color:red;
+}
+.error{
+color:red;
+}
 .td{
+font-family: "Raleway", sans-serif;
 color:white;
 }
 label{
+font-family: "Raleway", sans-serif;
+color:white;
+}
+#button1{
+border:1px solid white;
+border-radius:6px;
+}
+.newUser{
+text-align:center;
+color:white;
+text-decoration:none;
+}
+.newUser:hover{
 color:white;
 }

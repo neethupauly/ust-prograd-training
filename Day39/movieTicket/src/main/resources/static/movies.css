@@ -1,77 +1,47 @@
 body{
-
+box-sizing:border-box;
 /*background-color: #004170;*/
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-background-image:url("./images/theatre2.jpg");
+background-image:url("./images/bgimg.jpg");
 background-size:100%;
-image-height:100%;
-image-width:100%;
-
 }
-
-/* second css*/
-
-#navbarcontainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.521);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-}
-.navimg {
-  margin: 4%;
-  width: 100%;
-  height: 45px;
-
-}
-
-.nav-item a{
-    color: white !important;
-  font-family: "Raleway", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-   display: inline-block;
-   line-height: 80px;
-}
-h2{
-color:white;
-}
-.nav-item a:hover {
- color:#FBAB7E;
+.nav-item a:hover{
+      color:#E32636 !important;
 }
 td{
-font-family: "Raleway", sans-serif;
+font-weight:500;
+font-size:25px;
 color:white;
 }
-#container1{
-padding: 35px 50px;
+.navimg
+{
+    width: 100%;
+    height: 45px;
 }
-#movieNames{
-  font-family: "Raleway", sans-serif;
-  font-size: 25px;
-  font-weight: 600;
-  color:white;
-}
-.card{
-height:100%;
+.nav-item a{
+    font-size: 18px;
+    font-weight: 500;
+     color: white !important;
 
 }
-.card img{
-height:240px;
-display:flex;
-justify-content:space-evenly;
-flex-wrap:wrap;
-flex-direction:row;
+.head1{
+      color:white;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     text-align: center;
+
 }
-#button{
-background-color:transparent;
-border:1px solid red;
-border-radius:5px;
+
+#navbarcontainer{
+background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+}
+h6{
+color:white;
+}
+
+.td{
+color:white;
+}
+label{
+color:white;
 }

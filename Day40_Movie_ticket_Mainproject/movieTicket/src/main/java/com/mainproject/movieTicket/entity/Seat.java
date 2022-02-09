@@ -2,24 +2,26 @@ package com.mainproject.movieTicket.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Seat {
 
+
     @Id
+    @GeneratedValue
     private Long seatId;
-    @Column(nullable = false)
-    private Integer availableNoOfSeats;
+    private String seats;
+    private double price;
 
-    public Seat(Long seatId, Integer availableNoOfSeats) {
-        this.seatId = seatId;
-        this.availableNoOfSeats = availableNoOfSeats;
+    public Seat( String seats, double price) {
+
+        this.seats = seats;
+        this.price = price;
     }
+    public Seat(){}
 
-    public Seat(){
-
-    }
     public Long getSeatId() {
         return seatId;
     }
@@ -28,11 +30,19 @@ public class Seat {
         this.seatId = seatId;
     }
 
-    public Integer getAvailableNoOfSeats() {
-        return availableNoOfSeats;
+    public String getSeats() {
+        return seats;
     }
 
-    public void setAvailableNoOfSeats(Integer availableNoOfSeats) {
-        this.availableNoOfSeats = availableNoOfSeats;
+    public void setSeats(String seats) {
+        this.seats = seats;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

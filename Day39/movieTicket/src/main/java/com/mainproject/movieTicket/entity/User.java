@@ -1,10 +1,6 @@
 package com.mainproject.movieTicket.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.List;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -21,8 +17,8 @@ public class User {
     @Column(nullable = false,unique = true)
     private Long phoneNumber;
 
-    @OneToMany(mappedBy = "user")
-    private List<BookedSeats> bookedSeats;
+//    @OneToMany
+//    private Ticket ticket;
 
     public User(String userName, String name, Integer age, String password, String address, Long phoneNumber) {
         this.userName = userName;
@@ -83,13 +79,5 @@ public class User {
 
     public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public List<BookedSeats> getBookedSeats() {
-        return bookedSeats;
-    }
-
-    public void setBookedSeats(List<BookedSeats> bookedSeats) {
-        this.bookedSeats = bookedSeats;
     }
 }

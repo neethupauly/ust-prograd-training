@@ -1,8 +1,6 @@
 package com.mainproject.movieTicket.controller;
 
-import com.mainproject.movieTicket.entity.Movie;
 import com.mainproject.movieTicket.entity.User;
-import com.mainproject.movieTicket.service.MovieService;
 import com.mainproject.movieTicket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -19,9 +16,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private MovieService movieService;
 
     @RequestMapping("/home")
     public String homepage() {
@@ -65,28 +59,21 @@ public class UserController {
     public String userSignIn(Model model, HttpServletRequest request) {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
-//        String name=request.getParameter("name");
 
-        User user2 = userService.findById(userName);
+        User user1 = userService.findByid(userName);
 
-        if (userService.usernameExistsById(userName)) {
-            if (Objects.equals(userService.findById(userName).getPassword(),password)) {
+        if (userService.existsById(userName)) {
+            if (Objects.equals(password, user1.getPassword())) {
                 model.addAttribute("message", "Successfully logged in");
-                model.addAttribute("userName",userName);
-                model.addAttribute("name",userService.findById(userName).getName());
-                model.addAttribute("movieList",movieService.listAllMovies());
-                return "movies";
+                return "login";
             } else {
-                model.addAttribute("error", "Invalid Password..!");
+                model.addAttribute("message", "Invalid Password..!");
                 return "login";
             }
         } else {
-            model.addAttribute("error2", "Invalid Credentials..!");
+            model.addAttribute("message", "Invalid Credentials..!");
             return "login";
         }
     }
-
-
-
 }
 
